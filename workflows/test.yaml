@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - main
-  workflox_dispatch:
+  workflow_dispatch:
 
 jobs:
   hello:
