@@ -1,0 +1,26 @@
+name: Premier workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflox_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le dépot
+        uses: actions/checkout@v4
+
+      - name: Executer un script
+        run: bash scripts/hello.sh
+
+      - name: Analyser le script
+        uses: ludenus/action-shellcheck@master
+        with:
+          scandir: "./scripts"
+
+      - name: Terminé
+        run: echo "Workflow terminé!"
